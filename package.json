@@ -7,13 +7,13 @@
     "axios": "^0.21.1",
     "jsbarcode": "^3.11.4",
     "node-telegram-bot-api": "^0.54.0",
+    "sharp": "^0.28.3",
     "xmldom": "^0.6.0"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "pm2 start index.js --name test-bot && pm2 list",
     "stop": "pm2 stop 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "save": "git add . && git commit -m save && git push"
   },
   "author": "",
   "license": "ISC"
