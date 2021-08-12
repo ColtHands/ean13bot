@@ -31,20 +31,11 @@ bot.on('message', async msg => {
     bot.sendPhoto(chatId, fullPngFilePath)
     bot.sendDocument(chatId, fullSvgFilePath)
 
+
     fs.unlink(fullSvgFilePath, err => {
         console.log(err)
     })
-
     fs.unlink(fullPngFilePath, err => {
         console.log(err)
     })
-
-    // bot.sendMessage(chatId, msg.text)
 })
-
-// bot.onText(/\/echo (.+)/, (msg, match) => {
-//     const chatId = msg.chat.id
-//     const resp = match[1]
-
-//     bot.sendMessage(chatId, resp)
-// })
