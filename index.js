@@ -22,20 +22,14 @@ bot.on('message', async msg => {
     const fullSvgFilePath = path.join('storage', svgFileName)
     const barcodeSvgText = generateBarcodeSvgText(msg.text)
 
-    console.log('barcodeImg', barcodeImg)
-
-    fs.writeFile(fullSvgFilePath, barcodeSvgText, 'UTF-8', err => {
-        console.log(err)
-    })
-    
     bot.sendPhoto(chatId, fullPngFilePath)
     bot.sendDocument(chatId, fullSvgFilePath)
 
+    fs.writeFile(fullSvgFilePath, barcodeSvgText, 'UTF-8', async () => {
+        
+        await bot.sendDocument(chatId, fullSvgFilePath)
 
-    fs.unlink(fullSvgFilePath, err => {
-        console.log(err)
-    })
-    fs.unlink(fullPngFilePath, err => {
-        console.log(err)
+        fs.unlink(fullPngFilePath, err => { console.log(err) })
+        fs.unlink(fullSvgFilePath, err => { console.log(err) })
     })
 })
