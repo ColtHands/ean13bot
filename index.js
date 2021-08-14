@@ -26,7 +26,6 @@ bot.on('message', async msg => {
     bot.sendDocument(chatId, fullSvgFilePath)
 
     fs.writeFile(fullSvgFilePath, barcodeSvgText, 'UTF-8', async () => {
-        
         await bot.sendDocument(chatId, fullSvgFilePath)
 
         fs.unlink(fullPngFilePath, err => { console.log(err) })
