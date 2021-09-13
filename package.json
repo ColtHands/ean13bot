@@ -11,7 +11,7 @@
     "xmldom": "^0.6.0"
   },
   "scripts": {
-    "start": "pm2 start index.js --name test-bot && pm2 list",
+    "start": "pm2 start index.js --name ean13-bot && pm2 list",
     "stop": "pm2 stop 0",
     "save": "git add . && git commit -m save && git push"
   },
